@@ -36,13 +36,9 @@ class PertanyaanController extends Controller
     }
 
     public function edit($id) {
-        $data = Pertanyaan::where('id',$id)->first();
-        // $data = $request->all();
-        // unset($data["_token"]);
-        // unset($data["_method"]);
-        // dd($data);
-        // PertanyaanModel::update($data);
-        return view('layouts.crud.edit', compact('id'));
+        $output = Pertanyaan::where('id',$id)->first();
+
+        return view('layouts.crud.edit', compact('output','id'));
     }
 
     public function update(Request $request) {
@@ -53,7 +49,7 @@ class PertanyaanController extends Controller
         $output->tanggal_dibuat = $request->tanggal_dibuat;
         $output->tanggal_diperbarui = $request->tanggal_diperbarui;
         $output->save();
-        return redirect('/pertanyaan', compact('id'));
+        return redirect('/pertanyaan');
     }
 
     public function destroy($id) {

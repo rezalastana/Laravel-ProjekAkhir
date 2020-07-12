@@ -6,7 +6,7 @@
       <form action="{{ url('/pertanyaan/'.$id) }}" method="POST" class="m-3">
         {{ method_field('put') }}
         @csrf
-        <input hidden name="id" value={{ $output->$id }}>
+        <input hidden name="id" value={{ $id }}>
         <label for="judulpertanyaan">Judul Pertanyaan</label>
         <input type="text" name="judul" class="form-control mb-3" value="{{ $output->judul }}">
         <label for="isipertanyaan">Isi Pertanyaan</label>
